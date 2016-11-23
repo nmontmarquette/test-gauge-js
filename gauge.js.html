@@ -5,27 +5,21 @@
   <link href="gauge.js_files/main.css" type="text/css" rel="stylesheet">
     <!--[if lt IE 9]><script type="text/javascript" src="assets/excanvas.compiled.js"></script><![endif]-->
 </head>
-<body data-gr-c-s-loaded="true">
+<body>
 
 <div id="example" class="gauge">
   <div id="preview">
-  	<canvas width="220" height="70" id="canvas-preview"></canvas>
-  	<div style="font-size: 23px;" id="preview-textfield">1,250</div>
+    <div style="font-size: 23px;" id="preview-textfield">1,250</div>
+    <canvas width="220" height="70" id="canvas-preview"></canvas>
   </div>
-  <form id="opts" class="opts">
-  	<h4>Options:</h4>
-  	<input class="fd-form-element-hidden" id="fd-slider-form-elem-0" name="currval" min="0" max="3000" step="25" value="1250" type="text"><br>
-	<input class="fd-form-element-hidden" id="fd-slider-form-elem-1" name="animationSpeed" min="1" max="128" step="1" value="32" type="text"><br><br>
-  </form>
 </div>
-
-
 
 <script src="gauge.js_files/jquery.js"></script>
 <script src="gauge.js_files/gauge.js"></script>
 <script>
   function update() {
     var opts = {};
+
     $('.opts input[min], .opts .color').each(function() {
       var val = $(this).hasClass("color") ? this.value : parseFloat(this.value);
       if($(this).hasClass("color")){
@@ -62,25 +56,21 @@
       	AnimationUpdater.run();
       }
     });
-    $('#opts input:checkbox').each(function() {
-      opts[this.name] = this.checked;
-      $('#opt-' + this.name).text(this.checked);
-    });
+	opts.animationSpeed = 32;
     demoGauge.animationSpeed = opts.animationSpeed;
     opts.generateGradient = true;
     demoGauge.setOptions(opts);
     demoGauge.ctx.clearRect(0, 0, demoGauge.ctx.canvas.width, demoGauge.ctx.canvas.height);
     demoGauge.render();
-    if ($('#share').is(':checked')) {
-      window.location.replace('#?' + $('form').serialize());
-    }
   }
+
   function initGauge(){
     demoGauge = new Gauge(document.getElementById("canvas-preview"));
     demoGauge.setTextField(document.getElementById("preview-textfield"));
     demoGauge.maxValue = 3000;
     demoGauge.set(1244);
   };
+
   $(function() {
     var params = {};
     var hash = /^#\?(.*)/.exec(location.hash);
