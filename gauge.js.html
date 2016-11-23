@@ -23,7 +23,14 @@
   	<canvas width="220" height="70" id="canvas-preview"></canvas>
   	<div style="font-size: 41px;" id="preview-textfield">1,250</div>
   </div>
+  <form id="opts" class="opts">
+  	<h4>Options:</h4>
+  	<label>Current Val:</label><span aria-disabled="false" role="application" id="fd-slider-fd-slider-form-elem-0" class="fd-slider"><span class="fd-slider-inner"></span><span style="width: 57px;" class="fd-slider-range"></span><span class="fd-slider-bar"></span><span style="left: 56px;" aria-valuetext="1250" aria-valuenow="1250" aria-valuemax="3000" aria-valuemin="0" role="slider" class="fd-slider-handle" tabindex="0">&nbsp;</span></span><input class="fd-form-element-hidden" id="fd-slider-form-elem-0" name="currval" min="0" max="3000" step="25" value="1250" type="text"><br>
+    <label>Anim speed:</label><span aria-disabled="false" role="application" id="fd-slider-fd-slider-form-elem-1" class="fd-slider"><span class="fd-slider-inner"></span><span style="width: 34px;" class="fd-slider-range"></span><span class="fd-slider-bar"></span><span style="left: 33px;" aria-valuetext="32" aria-valuenow="32" aria-valuemax="128" aria-valuemin="1" role="slider" class="fd-slider-handle" tabindex="0">&nbsp;</span></span><input class="fd-form-element-hidden" id="fd-slider-form-elem-1" name="animationSpeed" min="1" max="128" step="1" value="32" type="text"><br><br>
+  </form>
 </div>
+
+</span><span class="kwd">var</span><span class="pln"> gauge </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span id="class-code-name" class="typ">Gauge</span><span class="pun">(</span><span class="pln">target</span><span class="pun">).</span><span class="pln">setOptions</span><span class="pun">(</span><span class="pln">opts</span><span class="pun">);</span><span class="pln"> </span><span class="com">// create sexy gauge!</span><span class="pln">
 
 <script src="gauge.js_files/jquery.js"></script>
 <script type="text/javascript" src="gauge.js_files/fd-slider.js"></script>
